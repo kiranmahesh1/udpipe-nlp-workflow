@@ -1,6 +1,6 @@
-#################################################
-#         udpipe-nlp-workflow - Group Assignment                       #
-#################################################
+#############################################################
+#         udpipe-nlp-workflow - Group Assignment           #
+############################################################
 
 library("shiny")
 library("tidytext")
@@ -48,6 +48,12 @@ shinyServer(function(input, output,session) {
       }
   })
   
+  output$downloadData1 <- downloadHandler(
+    filename = function() { "Nokia_Lumia_reviews.txt" },
+    content = function(file) {
+      writeLines(readLines("data/Nokia_Lumia_reviews.txt"), file)
+    }
+  )
   
   # output$summary1 <- renderPrint({
   #   head(dataset())

@@ -1,6 +1,6 @@
-#################################################
+################################################################
 #           udpipe-nlp-workflow - Group Assignment             #
-#################################################
+################################################################
 
 library("shiny")
 library("tidytext")
@@ -30,7 +30,7 @@ shinyUI(fluidPage(
   
   # Input in sidepanel:
   sidebarPanel(
-    fileInput("file1", "Upload text file for UDPile NLP workflow"),
+    fileInput("file1", "Upload text file for UDPipe NLP workflow"),
     fileInput("file2", "Upload trained UDPile NLP model"),
     checkboxGroupInput("xposval", "XPOS Tags",selected = list("ADJ", "NOUN","PROPN"),
                        choiceNames =
@@ -52,32 +52,32 @@ shinyUI(fluidPage(
                 #
                 tabPanel("Overview",h4(p("How to use this App")),
                          
-                         p("This section holds the overview of the app and its usage. Sample code unchanged", align = "justify"),
+                         p("This section holds the overview of the app and its usage.", align = "justify"),
                          
-                         p("You can change the sentiment dictionary in left-sidebar panel. This app supports four inbuilt sentiment dictionaries and one user defined dictionary. If a user selects User Defined dictionary, then a browse file input will appear below sentiment dictionary drop-down in left-side-bar panel and user can upload the user defined dictionary. This user defined dictionary should be in csv format and first column of the dictionary should be word and second column should be score. You can download the sample user defined dictionary below.", align = "justify"),
-                         a(href="http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010","1- Afinn"),
-                         p("AFINN is a list of English words rated for valence with an integer between minus five (negative) and plus five (positive). The words have been manually labeled by Finn Arup Nielsen in 2009-2011."),
-                      
-                         a(href="https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html","2- Bing"),
-                         p("This sentiment dictionary is created by Bing Liu and collaborators. In this dictionary, words are classified as positive or negative."),
-                      
-                         a(href="http://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm","3- NRC"),
-                         p("The NRC Emotion Lexicon is a list of English words and their associations with eight basic emotions (anger, fear, anticipation, trust, surprise, sadness, joy, and disgust) and two sentiments (negative and positive). The annotations were manually done by crowdsourcing."),
-                      
-                         a(href="http://www3.nd.edu/~mcdonald/Word_Lists.html","4- Loughran"),
-                         p("This dictionary is created by Tim Loughran and Bill McDonald. In this dictionary each word is classified in financial context (uncertainty, litigious, constraining, superfluous, positive, negative)"),
+                         p("UDPipe provides the standard NLP functionalities of tagging, parsing and dependency evaluations - all within R.", align = "justify"),br(),br(),
+                         h4(a(href="https://raw.githubusercontent.com/kiranmahesh1/udpipe-nlp-workflow/master/dependency-udpipe-nlp-workflow.R","Prerequisite packages")),
+                         p("Load the prerequisite packages by running the source command and above URI in quotes."),br(),br(),
                         
-                         h4(p("Download Sample user defined dictionary file")),
-                         downloadButton('downloadData3', 'Download User Defined Dictionary (works only in browser)'),br(),br(),
+                         h4(p("In left sidebar panel, upload the text document for UDPipe NLP workflow.")),
+                         img(src = "text_file.jpg"),br(),br(),
                          
-                         p("In the left-side bar panel you can change the document index number and accordingly document level analysis will be updated in \"Document level Analysis\" tab", align = "justify"),
+                         h4(p("Sample english text document below")),
+                         downloadButton('downloadData1', 'txt document file'),br(),br(),
                          
-                         p("If plots are not working in \"Sentiments - Plot\" tab then please install latest version of ggplot2. You can install ggplot2 by command - install.packages(\"ggplot2\")", align = "justify"),
-                         h4(p("Download Sample text file")),
-                         downloadButton('downloadData1', 'Download Nokia Lumia reviews txt file (works only in browser)'),br(),br(),
+                         h4(p("In left sidebar panel, also upload the respective trained UDPile NLP model")),
+                         img(src = "udpipe_model.jpg"),br(),br(),
                          
-                         p("Please note that download will not work with RStudio interface. Download will work only in web-browsers. So open this app in a web-browser and then download the example file. For opening this app in web-browser click on \"Open in Browser\" as shown below -"),
-                         img(src = "example1.png")
+                         p("In the left-side bar panel you can check the POSTags to be inclused in the cooccurances plot. By default selection: ", align = "justify"),
+                         p("1. Adjective (ADJ)", align = "justify"),
+                         p("2. Noun(NOUN)", align = "justify"),
+                         p("3. Proper noun (PROPN)", align = "justify"),br(),br(),
+                         
+                         p("In the left-side bar panel you can also change the skip grams to be considered for cooccurances plot analysis. Default its set to 3 skip grams.", align = "justify"),
+                         img(src = "skipgram.jpg"),br(),br(),
+                         
+                         h4(p("Note")),
+                         p("Note: Plot rendering may take approximately 10 to 15 seconds depending the upload file size.")
+                         
                        
                          ),
                 
