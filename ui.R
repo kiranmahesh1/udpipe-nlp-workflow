@@ -38,7 +38,7 @@ shinyUI(fluidPage(
                        choiceValues =
                          list("ADJ", "NOUN","PROPN","ADV","VERB")),
     
-    sliderInput("skipgram", "Skipgrams to be considered for co-occurrence plot:", min = 0,  max = 5, value = 3)
+    sliderInput("skipgram", "Skipgrams to be considered for co-occurrence plot:", min = 0,  max = 10, value = 3)
     
     # submitButton(text = "Apply Changes", icon("refresh"))
     
@@ -76,7 +76,8 @@ shinyUI(fluidPage(
                          img(src = "skipgram.jpg"),br(),br(),
                          
                          h4(p("Note")),
-                         p("Note: Plot rendering may take approximately 10 to 15 seconds depending the upload file size.")
+                         p("1. Plot rendering may take approximately 10 to 15 seconds depending the upload file size."),
+                         p("2. Make sure text file language and UDPipe model is same for accurate results")
                          
                        
                          ),
