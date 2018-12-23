@@ -1,5 +1,10 @@
 ################################################################
 #           udpipe-nlp-workflow - Group Assignment             #
+#                                                              #
+#           Group Members:                                     #
+#             Kiran Mahesh ND (11810010)                       #
+#             Ekta Uppal (11810015)                            #
+#             Meenakshi Naren (11810030)                       #
 ################################################################
 
 library("shiny")
